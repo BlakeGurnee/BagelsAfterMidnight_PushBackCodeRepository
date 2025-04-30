@@ -1,5 +1,5 @@
 
-![Logo](Copy of High Voltage2.png)
+![Logo]([Copy of High Voltage2.png](https://github.com/BlakeGurnee/Midnight_Bagles_PushBackCodeRepository/blob/5f3fe819de12f377fe2857047910ae472b8eb231/Copy%20of%20High%20Voltage2.png))
 
 
 # 📢 8031A Midnight Bagles - 2025 - 2026 "Push Back" Code Repository
