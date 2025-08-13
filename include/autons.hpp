@@ -6,6 +6,7 @@ void redLeftSide();
 void redRightSide();
 void blueLeftSide();
 void blueRightSide();
-void soloWp();
+void soloWpRed();
+void soloWpBlue();
 void skills();
 void testing();

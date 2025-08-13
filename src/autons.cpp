@@ -1,42 +1,54 @@
 #include "main.h"
+#include "globals.hpp"
 #include "robodash/api.h"
-
-// Robodash console
-rd::Console consoleLog;
 
 void redLeftSide() // Red left auton scores number amount of points blah blah blah (replace)
 {
-  consoleLog.print("Running Red Left");
+  allianceIsRed = true;
+  LOG("Running Red Left");
 }
 
 void redRightSide() // Red right auton scores number amount of points blah blah blah (replace)
 {
-  consoleLog.print("Running Red Right");
+  allianceIsRed = true;
+  LOG("Running Red Right");
 }
 
 void blueLeftSide() // Blue Left auton scores number amount of points blah blah blah (replace)
 {
-  consoleLog.print("Running Blue Left");
+  allianceIsRed = false;
+  LOG("Running Blue Left");
 }
 
 void blueRightSide() // Blue right auton scores number amount of points blah blah blah (replace)
 {
-  consoleLog.print("Running Blue Right");
+  allianceIsRed = false;
+  LOG("Running Blue Right");
 }
 
-void soloWP() // Auton for solo win point in case our teamate has a bad auton
+void soloWpBlue() // Auton for solo win point in case our teamate has a bad auton
 {
-  consoleLog.print("Running Solo Win Point");
+  allianceIsRed = false;
+  LOG("Running Solo Win Point Blue");
+}
+
+void soloWpRed() // Skills auton can get this many points with time amount of time left (replace)
+{
+  allianceIsRed = true;
+  LOG("Running Solo Win Point Red");
 }
 
 void skills() // Skills auton can get this many points with time amount of time left (replace)
 {
-  consoleLog.print("Running Skills");
+  allianceIsRed = true;
+  LOG("Running Skills");
 }
 
 void testing() // Mode for testing only
 {
-  consoleLog.print("Testing Active");
+  // allianceIsRed = true;
+  // allianceIsRed = false;
+  LOG("Testing Active");
 }
 
 /* Eliminate Round autons these autons are different from regular autons becuase in the elimination rounds you don't need to worry about getting winpoint
