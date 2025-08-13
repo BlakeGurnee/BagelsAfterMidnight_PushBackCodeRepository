@@ -16,6 +16,14 @@ void recordControllerInput(pros::Controller &controller)
     state.btnB = controller.get_digital(pros::E_CONTROLLER_DIGITAL_B);
     state.btnX = controller.get_digital(pros::E_CONTROLLER_DIGITAL_X);
     state.btnY = controller.get_digital(pros::E_CONTROLLER_DIGITAL_Y);
+    state.btnLeft = controller.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT);
+    state.btnRight = controller.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT);
+    state.btnUp = controller.get_digital(pros::E_CONTROLLER_DIGITAL_UP);
+    state.btnDown = controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN);
+    state.btnL1 = controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1);
+    state.btnL2 = controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2);
+    state.btnR1 = controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1);
+    state.btnR2 = controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2);
 
     recordedInputs.push_back(state);
 }

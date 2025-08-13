@@ -16,6 +16,14 @@ struct ControllerState
     bool btnB;
     bool btnX;
     bool btnY;
+    bool btnLeft;
+    bool btnRight;
+    bool btnUp;
+    bool btnDown;
+    bool btnL1;
+    bool btnL2;
+    bool btnR1;
+    bool btnR2;
     // Add more buttons if you want
 };
 
