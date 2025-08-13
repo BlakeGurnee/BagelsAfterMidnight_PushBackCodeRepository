@@ -161,34 +161,54 @@ void opcontrol()
         int leftY = controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y);
         chassis.tank(-leftY, -rightY);
 
+        /*
+        while (true)
+        {
+            // Toggle recording with a button press (example: X button)
+            if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_X))
+            {
+                isRecording = !isRecording;
+                if (isRecording)
+                {
+                    recordedInputs.clear(); // start fresh
+                    master.rumble(".");     // feedback
+                }
+                else
+                {
+                    saveRecordingToFile("/usd/skills.txt"); // save when stopping
+                    master.rumble("-");                     // feedback
+                }
+            }
+        */
+       
         // Record controller inputs if enabled
         if (isRecording)
         {
             recordControllerInput(controller);
         }
 
-        if (controller.get_digital(DIGITAL_B) && controller.get_digital(DIGITAL_DOWN)) // Have the auton run if we hit the B and Down button makes it so we don't need to have a comp switch to test autons
-        {
-            autonomous();
-        }
+            if (controller.get_digital(DIGITAL_B) && controller.get_digital(DIGITAL_DOWN)) // Have the auton run if we hit the B and Down button makes it so we don't need to have a comp switch to test autons
+            {
+                autonomous();
+            }
 
-        if (controller.get_digital(DIGITAL_UP))
-        {
-            intakeActive = true;
-            optical_sensor.set_led_pwm(100);
-        }
+            if (controller.get_digital(DIGITAL_UP))
+            {
+                intakeActive = true;
+                optical_sensor.set_led_pwm(100);
+            }
 
-        if (controller.get_digital(DIGITAL_DOWN))
-        {
+            if (controller.get_digital(DIGITAL_DOWN))
+            {
 
-            intakeActive = true;
-            setIntake(115); // Reverse intake
-        }
+                intakeActive = true;
+                setIntake(115); // Reverse intake
+            }
 
-        if (controller.get_digital(DIGITAL_RIGHT))
-        {
-            intakeActive = false;
-            setIntake(0); // Stop intake
+            if (controller.get_digital(DIGITAL_RIGHT))
+            {
+                intakeActive = false;
+                setIntake(0); // Stop intake
+            }
         }
-    }
 }
