@@ -9,3 +9,5 @@ void flap2Switch();
 void setIntake(int power);
 void colorSortTaskFn();
 void checkIntakeStall();
+// Function to correct odometry using distance sensors
+void correctOdomWithDistance();

@@ -12,6 +12,10 @@ pros::adi::Pneumatics flap1('A', true);  // Starts clamp in the false (Down) pos
 pros::adi::Pneumatics flap2('H', false); // Starts tipper in the false (Down) position when the code starts // TODO: Raplace these with the right ports
 
 // Sensors
+// Distance sensors
+pros::Distance frontSensor(1); // Front distance sensor
+pros::Distance leftSensor(2);  // left distance sensor
+pros::Distance rightSensor(3); // right distance sensor
 
 // Variables
 // Set alliance color before match starts

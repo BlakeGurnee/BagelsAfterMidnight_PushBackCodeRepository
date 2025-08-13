@@ -2,6 +2,7 @@
 #include "helpers.hpp"
 #include "globals.hpp"
 #include "pros/misc.hpp"
+#include <numeric>
 
 void setIntake(int intakePower)
 {
@@ -161,4 +162,63 @@ void checkIntakeStall()
             controller.rumble(".."); // Alert driver
         }
     }
+}
+
+// Correction thresholds (in meters or your preferred units)
+const double FRONT_CORRECT_THRESHOLD = 0.05; // 5 cm
+const double SIDE_CORRECT_THRESHOLD = 0.05;
+
+// Rolling buffers for smoothing
+std::array<double, SENSOR_BUFFER_SIZE> frontBuffer = {};
+std::array<double, SENSOR_BUFFER_SIZE> leftBuffer = {};
+std::array<double, SENSOR_BUFFER_SIZE> rightBuffer = {};
+int bufferIndex = 0;
+
+// Helper to compute average
+double averageBuffer(const std::array<double, SENSOR_BUFFER_SIZE> &buf)
+{
+    double sum = std::accumulate(buf.begin(), buf.end(), 0.0);
+    return sum / SENSOR_BUFFER_SIZE;
+}
+
+// Odometry correction function
+void correctOdomWithDistance()
+{
+    if (!useOdomCorrection)
+        return;
+
+    // Add current sensor readings to buffers
+    frontBuffer[bufferIndex] = frontSensor.get();
+    leftBuffer[bufferIndex] = leftSensor.get();
+    rightBuffer[bufferIndex] = rightSensor.get();
+
+    // Update buffer index
+    bufferIndex = (bufferIndex + 1) % SENSOR_BUFFER_SIZE;
+
+    // Compute smoothed values
+    double frontAvg = averageBuffer(frontBuffer);
+    double leftAvg = averageBuffer(leftBuffer);
+    double rightAvg = averageBuffer(rightBuffer);
+
+    // Get current pose
+    auto pose = chassis.getPose();
+
+    // Correct X using front sensor
+    double expectedFrontDistance = 0.0; // wall/reference distance
+    double deltaX = frontAvg - expectedFrontDistance;
+    if (fabs(deltaX) > FRONT_CORRECT_THRESHOLD)
+    {
+        pose.x += deltaX;
+    }
+
+    // Correct Y using side sensors
+    double deltaY = 0.0;
+    if (fabs(leftAvg - rightAvg) > SIDE_CORRECT_THRESHOLD)
+    {
+        deltaY = (leftAvg - rightAvg) / 2.0;
+        pose.y += deltaY;
+    }
+
+    // Apply corrected pose
+    chassis.setPose(pose);
 }
