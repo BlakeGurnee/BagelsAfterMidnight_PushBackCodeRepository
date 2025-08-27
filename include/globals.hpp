@@ -7,12 +7,14 @@
 
 // motors
 extern pros::MotorGroup intake;
+extern pros::Motor intakeMotor;
 
 // pneumatics
-extern pros::adi::Pneumatics flap1;
-extern pros::adi::Pneumatics flap2;
+//extern pros::adi::Pneumatics flap1; commented out until we add the Pneumatics
 
 // Sensors
+// Distance?
+extern pros::Optical optical_sensor;
 
 // Variables
 
@@ -20,11 +22,6 @@ extern pros::adi::Pneumatics flap2;
 extern bool allianceIsRed;
 extern bool intakeActive;
 extern bool colorSortEnabled;
-
-// Global devices
-extern pros::Optical optical_sensor;
-extern pros::Motor intakeMotor;
-
 
 extern rd::Console console;
 #define LOG(...) console.print(__VA_ARGS__) // define a log function for easier printing to the console

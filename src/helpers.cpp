@@ -87,30 +87,6 @@ void colorSortTaskFn()
     }
 }
 
-void flap1Switch()
-{
-    if (flap1.is_extended())
-    {
-        flap1.retract();
-    }
-    else
-    {
-        flap2.extend();
-    }
-}
-
-void flap2Switch()
-{
-    if (flap2.is_extended())
-    {
-        flap2.retract();
-    }
-    else
-    {
-        flap2.extend();
-    }
-}
-
 // Stall detection with auto-reverse
 void checkIntakeStall()
 {

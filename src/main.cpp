@@ -40,18 +40,17 @@ pros::Controller controller(pros::E_CONTROLLER_MASTER);
 // TODO: replace these with updated motors for the new season
 // Motor groups
 pros::MotorGroup leftMotors({-3, -2, -20}, pros::MotorGearset::blue); // left motor group
-pros::MotorGroup rightMotors({1, 5, 9}, pros::MotorGearset::blue);    // right motor group
+pros::MotorGroup rightMotors({1, 5, 9}, pros::MotorGearset::blue); // right motor group
 
 // Imu on port 7
 pros::Imu imu(7);
 
 // tracking wheels
-// horizontal tracking wheel encoder. Rotation sensor, port 20, not reversed
-pros::Rotation horizontalEnc(20);
-// vertical tracking wheel encoder. Rotation sensor, port 11, reversed
+
+// Vertical tracking wheel. Rotation sensor, port 11, reversed
 pros::Rotation verticalEnc(-11);
 
-// TODO: Calculate this with the correct wheels and offsets
+// TODO: Calculate this with the correct wheels and offset
 // horizontal tracking wheel. 2.75" diameter, 5.75" offset, back of the robot (negative)
 // lemlib::TrackingWheel horizontal(&horizontalEnc, lemlib::Omniwheel::NEW_275, -5.75);
 // vertical tracking wheel. 2.75" diameter, 2.5" offset, left of the robot (negative)
@@ -60,7 +59,7 @@ lemlib::TrackingWheel vertical(&verticalEnc, lemlib::Omniwheel::NEW_275, -2.5);
 // Drivetrain settings
 lemlib::Drivetrain drivetrain(&leftMotors, &rightMotors, 14, lemlib::Omniwheel::OLD_275, 360, 2);
 
-// TODO: Tune this
+// TODO: Tune this to new robot
 // Lateral motion controller
 lemlib::ControllerSettings linearController(10, 0, 3, 3, 1, 100, 3, 500, 20);
 
@@ -68,7 +67,7 @@ lemlib::ControllerSettings linearController(10, 0, 3, 3, 1, 100, 3, 500, 20);
 lemlib::ControllerSettings angularController(2, 0, 10, 3, 1, 100, 3, 500, 0);
 
 // Sensors for odometry
-lemlib::OdomSensors sensors(&vertical, nullptr, nullptr, nullptr, &imu);
+lemlib::OdomSensors sensors(&vertical, nullptr, nullptr, nullptr, &imu); // We have vertical tracking wheel and imu
 
 // Input curves for driver control
 lemlib::ExpoDriveCurve throttleCurve(3, 10, 1.019);
@@ -91,7 +90,8 @@ void initialize()
     chassis.calibrate();                    // calibrate chassis
     optical_sensor.set_led_pwm(100);        // LED on for color detection
     optical_sensor.set_integration_time(5); // faster response
-    // You can include other initialization code here as needed.
+
+    // Include other initialization code here as needed.
 }
 
 /**
@@ -159,9 +159,9 @@ void opcontrol()
         // Retrieve joystick values for tank control.
         int rightY = controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
         int leftY = controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y);
-        chassis.tank(-leftY, -rightY);
+        chassis.tank(-leftY, -rightY); // If driving is messed up change this or the things above.
 
-        /*
+        /* Commented out for use only for recording skills and to not be activated during a match.
         while (true)
         {
             // Toggle recording with a button press (example: X button)
@@ -194,15 +194,16 @@ void opcontrol()
 
             if (controller.get_digital(DIGITAL_UP))
             {
-                intakeActive = true;
-                optical_sensor.set_led_pwm(100);
+                setIntake(-115); // Foward Intake (Might need to change this for new robot.)
+                //intakeActive = true;
+                //optical_sensor.set_led_pwm(100);
             }
 
             if (controller.get_digital(DIGITAL_DOWN))
             {
 
-                intakeActive = true;
-                setIntake(115); // Reverse intake
+                //intakeActive = true;
+                setIntake(115); // Reverse intake (Might need to change this for new robot.)
             }
 
             if (controller.get_digital(DIGITAL_RIGHT))
