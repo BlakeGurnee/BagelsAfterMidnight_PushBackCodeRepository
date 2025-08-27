@@ -161,25 +161,23 @@ void opcontrol()
         int leftY = controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y);
         chassis.tank(-leftY, -rightY); // If driving is messed up change this or the things above.
 
-        /* Commented out for use only for recording skills and to not be activated during a match.
         while (true)
         {
             // Toggle recording with a button press (example: X button)
-            if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_X))
+            if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_X))
             {
                 isRecording = !isRecording;
                 if (isRecording)
                 {
                     recordedInputs.clear(); // start fresh
-                    master.rumble(".");     // feedback
+                    controller.rumble(".");     // feedback
                 }
                 else
                 {
                     saveRecordingToFile("/usd/skills.txt"); // save when stopping
-                    master.rumble("-");                     // feedback
+                    controller.rumble("-");                     // feedback
                 }
             }
-        */
        
         // Record controller inputs if enabled
         if (isRecording)
@@ -212,4 +210,5 @@ void opcontrol()
                 setIntake(0); // Stop intake
             }
         }
+    }
 }
