@@ -57,7 +57,7 @@ pros::Rotation verticalEnc(-11);
 lemlib::TrackingWheel vertical(&verticalEnc, lemlib::Omniwheel::NEW_275, -2.5);
 
 // Drivetrain settings
-lemlib::Drivetrain drivetrain(&leftMotors, &rightMotors, 14, lemlib::Omniwheel::OLD_275, 360, 2);
+lemlib::Drivetrain drivetrain(&leftMotors, &rightMotors, 14, lemlib::Omniwheel::NEW_325, 450, 2);
 
 // TODO: Tune this to new robot
 // Lateral motion controller
@@ -182,7 +182,7 @@ void opcontrol()
         // Record controller inputs if enabled
         if (isRecording)
         {
-            recordControllerInput(controller);
+            recordControllerInput(controller); //comments
         }
 
             if (controller.get_digital(DIGITAL_B) && controller.get_digital(DIGITAL_DOWN)) // Have the auton run if we hit the B and Down button makes it so we don't need to have a comp switch to test autons
