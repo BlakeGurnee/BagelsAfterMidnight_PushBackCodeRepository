@@ -1,8 +1,8 @@
 ![Logo](https://github.com/BlakeGurnee/Midnight_Bagles_PushBackCodeRepository/blob/5f3fe819de12f377fe2857047910ae472b8eb231/Copy%20of%20High%20Voltage2.png?raw=true)
 
-# 📢 8031A Midnight Bagles - 2025 - 2026 "Push Back" Code Repository
+# 📢 8031B Bagles After Midnight - 2025 - 2026 "Push Back" Code Repository
 
-Welcome to the official codebase for 8031A Midnight Bagles' robot in the 2025 - 2026 VEX Robotics competition, "Push Back." Here lies the source code for our robot, written in C++ using the PROS development environment and the Lemlib Template.
+Welcome to the official codebase for 8031B Bagels After Midnight' robot in the 2025 - 2026 VEX Robotics competition, "Push Back." Here lies the source code for our robot, written in C++ using the PROS development environment and the Lemlib Template.
 
 We use Git and GitHub for version control, allowing us to:
 
@@ -124,7 +124,7 @@ How we use GitHub for version control:
 
 ## 📕 Documentation
 
-[Documentation](https://blakegurnee.github.io/8031A_HighVoltageCode/)
+[Documentation](Coming Soon!)
 
 ---
 
