@@ -130,4 +130,4 @@ How we use GitHub for version control:
 
 ## 📲 Contact Us
 
-Curious about anything, have a suggestion, or want to connect? Feel free to hit us up on our [Instagram]([Instagram!](https://www.instagram.com/bagelsaftermidnight__8031b/)) We're always keen on sharing our journey, learning from others, and inspiring the next generation of robotics champions.
+Curious about anything, have a suggestion, or want to connect? Feel free to hit us up on our [Instagram](https://www.instagram.com/bagelsaftermidnight__8031b/) We're always keen on sharing our journey, learning from others, and inspiring the next generation of robotics champions.
