@@ -1,14 +1,14 @@
-![Logo](https://github.com/BlakeGurnee/Midnight_Bagles_PushBackCodeRepository/blob/5f3fe819de12f377fe2857047910ae472b8eb231/Copy%20of%20High%20Voltage2.png?raw=true)
+![Logo](https://github.com/BlakeGurnee/BagelsAfterMidnight_PushBackCodeRepository/blob/main/Bagels%20After%20Midnight.png)
 
 # 📢 8031B Bagles After Midnight - 2025 - 2026 "Push Back" Code Repository
 
-Welcome to the official codebase for 8031B Bagels After Midnight' robot in the 2025 - 2026 VEX Robotics competition, "Push Back." Here lies the source code for our robot, written in C++ using the PROS development environment and the Lemlib Template.
+Welcome to the official codebase for 8031B Bagels After Midnight's robot in the 2025 - 2026 VEX Robotics competition, "Push Back." Here lies the source code for our robot, written in C++ using the PROS development environment and the Lemlib Template.
 
 We use Git and GitHub for version control, allowing us to:
 
 - ✅ Organize — Our code is divided into logical, clearly-named files.
 - ✅ Track changes — Easily revert to previous versions if something goes wrong.
-- ✅ Back up our work — Our code is safely stored in the cloud so it doesn't get lost. It enables our development to be faster, more efficient, and truly collaborative. 🚀
+- ✅ Back up our work — Our code is safely stored in the cloud, so it doesn't get lost. It enables our development to be faster, more efficient, and truly collaborative. 🚀
 
 ---
 
